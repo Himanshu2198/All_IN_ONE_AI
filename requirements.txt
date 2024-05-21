@@ -3,4 +3,4 @@ streamlit
 google.generativeai
 python-dotenv
 SpeechRecognition
-pyudio
+datasets[audio]

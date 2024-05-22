@@ -18,24 +18,24 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 st.set_page_config(page_title="All in One Ai Assistant")
 
 #background image
-def add_bg_image(image_file):
-    with open(image_file,"rb") as image_file:
-        encoded_string = base64.b64encode(image_file.read())
-    st.markdown(
-    f"""
-    <style>
-    .stApp{{
-        background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
-        background-size: cover
-        filter: blur(8px);
-        -webkit-filter: blur(8px);
-    }}
-    </style>
-    """,
-    unsafe_allow_html = True
-    )
+# def add_bg_image(image_file):
+#     with open(image_file,"rb") as image_file:
+#         encoded_string = base64.b64encode(image_file.read())
+#     st.markdown(
+#     f"""
+#     <style>
+#     .stApp{{
+#         background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+#         background-size: cover
+#         filter: blur(8px);
+#         -webkit-filter: blur(8px);
+#     }}
+#     </style>
+#     """,
+#     unsafe_allow_html = True
+#     )
 
-add_bg_image(Designer(3).png)
+# add_bg_image(Designer(3).png)
 
 # Create menu using sidebar
 menu = ["Calorie Calculator", "Speech to Text", "Text to Speech", "Image to Text", "Chat Bot", "Content Summarizer"]
@@ -99,17 +99,18 @@ def speech_to_text():
     recognizer = sr.Recognizer()
 
     def listen_for_command():
-        with sr.Microphone() as source:
-            st.write("Listening...")
-            audio = recognizer.listen(source)
-
         try:
-            command = recognizer.recognize_google(audio)
-            st.write(f"Command: {command}")
-        except sr.UnknownValueError:
-            st.write("Sorry, I did not understand that.")
-        except sr.RequestError:
-            st.write("Could not request results; check your network connection.")
+            with sr.Microphone() as source:
+                st.write("Listening...")
+                audio = recognizer.listen(source)
+
+            try:
+                command = recognizer.recognize_google(audio)
+                st.write(f"Command: {command}")
+            except sr.UnknownValueError:
+                st.write("Sorry, I did not understand that.")
+            except sr.RequestError:
+                st.write("Could not request results; check your network connection.")
         except OSError:
             st.write("No default input device avaliable. Please ensure a microphone is connected.")
 

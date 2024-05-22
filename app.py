@@ -8,6 +8,7 @@ import speech_recognition as sr
 # import keyboard
 from gtts import gTTS
 import pyttsx3
+import base64
 import tempfile
 
 # Configuration for Google Gemini API
@@ -15,6 +16,26 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 # Define the layout
 st.set_page_config(page_title="All in One Ai Assistant")
+
+#background image
+def add_bg_image(image_file):
+    with open(image_file,"rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read())
+    st.markdown(
+    f"""
+    <style>
+    .stApp{{
+        background-image: url(data:image/{"png"};base64,{encoded_string.decode()});
+        background-size: cover
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+    }}
+    </style>
+    """,
+    unsafe_allow_html = True
+    )
+
+add_bg_image(AI_wallpaper.png)
 
 # Create menu using sidebar
 menu = ["Calorie Calculator", "Speech to Text", "Text to Speech", "Image to Text", "Chat Bot", "Content Summarizer"]

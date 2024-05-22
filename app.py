@@ -35,7 +35,7 @@ def add_bg_image(image_file):
     unsafe_allow_html = True
     )
 
-add_bg_image(AI_wallpaper.png)
+add_bg_image(https://copilot.microsoft.com/images/create/a-futuristic-image-for-an-ai-bot/1-664df9ba2bd34c308ffb1ffbec1d0a01?id=AIE%2fzfUAJlbPOJR1NDnVbQ%3d%3d&view=detailv2&idpp=genimg&idpclose=1&thId=OIG2.HXNH4krjtmg39rLmTxA8&lng=en-US&ineditshare=1)
 
 # Create menu using sidebar
 menu = ["Calorie Calculator", "Speech to Text", "Text to Speech", "Image to Text", "Chat Bot", "Content Summarizer"]

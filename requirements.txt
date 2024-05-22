@@ -4,4 +4,4 @@ google.generativeai
 python-dotenv
 SpeechRecognition
 datasets[audio]
-pipwin
+pyaudio

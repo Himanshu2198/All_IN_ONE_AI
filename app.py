@@ -7,6 +7,7 @@ from PIL import Image
 import speech_recognition as sr
 # import keyboard
 from gtts import gTTS
+import pyttsx3
 import tempfile
 
 # Configuration for Google Gemini API
@@ -88,6 +89,8 @@ def speech_to_text():
             st.write("Sorry, I did not understand that.")
         except sr.RequestError:
             st.write("Could not request results; check your network connection.")
+    except OSError:
+            st.write("No default input device avaliable. Please ensure a microphone is connected.")
 
     if st.button("Start Listening"):
         listen_for_command()

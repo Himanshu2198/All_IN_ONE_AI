@@ -89,7 +89,7 @@ def speech_to_text():
             st.write("Sorry, I did not understand that.")
         except sr.RequestError:
             st.write("Could not request results; check your network connection.")
-    except OSError:
+        except OSError:
             st.write("No default input device avaliable. Please ensure a microphone is connected.")
 
     if st.button("Start Listening"):

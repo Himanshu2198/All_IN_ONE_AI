@@ -10,6 +10,7 @@ from gtts import gTTS
 import pyttsx3
 import base64
 import tempfile
+import base64
 
 # Configuration for Google Gemini API
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
